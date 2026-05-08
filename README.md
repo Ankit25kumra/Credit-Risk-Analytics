@@ -12,6 +12,9 @@ A Streamlit web application for credit risk analysis, exploratory data analysis,
 - Styled sidebar navigation with active menu state and sign-out action
 - Single-account login for dashboard access
 
+## Credit Risk Analytics App
+- https://ankit25kumra-credit-risk-analytics-app-mslty8.streamlit.app/
+
 ## Login
 
 Use the following account to access the app:
