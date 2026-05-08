@@ -1,140 +1,112 @@
 # Credit Risk Analytics Dashboard
 
-A comprehensive Streamlit web application for credit risk analysis and prediction using machine learning.
+A Streamlit web application for credit risk analysis, exploratory data analysis, and customer risk scoring.
 
 ## Features
 
-- **Dashboard** - Overview of key metrics and statistics
-- **EDA** - Exploratory data analysis with interactive visualizations
-- **Model Info** - Details about the machine learning model and features
-- **Risk Prediction** - Interactive tool to predict credit risk for new customers
-- **Performance** - Model performance metrics and evaluation charts
+- Dashboard with customer, default, credit score, and income metrics
+- Exploratory data analysis with feature distributions and correlation charts
+- Model information page with feature groups and model configuration
+- Credit risk prediction form with risk score, level, and recommendation
+- Performance page with metrics, confusion matrix, and ROC-AUC curve
+- Styled sidebar navigation with active menu state and sign-out action
+- Single-account login for dashboard access
+
+## Login
+
+Use the following account to access the app:
+
+```text
+Username: admin
+Password: admin@123
+```
 
 ## Getting Started
 
 ### Prerequisites
+
 - Python 3.8 or higher
-- pip (Python package manager)
+- pip
 
 ### Installation
 
-1. Navigate to the project directory:
-```bash
-cd credit_app
-```
+Clone the repository and install dependencies:
 
-2. Install required packages:
 ```bash
+git clone https://github.com/Ankit25kumra/Credit-Risk-Analytics.git
+cd Credit-Risk-Analytics
 pip install -r requirements.txt
 ```
 
-### Running the App
+### Run the App
 
-Start the Streamlit application:
 ```bash
 streamlit run app.py
 ```
 
-The app will open in your default web browser at `http://localhost:8501`
+The app will run locally at:
+
+```text
+http://localhost:8501
+```
 
 ## Project Structure
 
-```
+```text
 credit_app/
-├── app.py                  # Main Streamlit application
-├── requirements.txt        # Python dependencies
-├── final_data_set.csv      # Credit risk dataset
-├── RETAIL_BANK_3MODEL.ipynb  # Original Jupyter notebook
-└── README.md              # This file
+|-- app.py                    # Main Streamlit application
+|-- final_data_set.csv         # Credit risk dataset
+|-- requirements.txt           # Python dependencies
+|-- train_model.py             # Model training and artifact generation script
+|-- RETAIL _BANK_3MODEL.ipynb  # Original notebook/reference work
+|-- README.md                  # Project documentation
 ```
 
-## Dashboard Pages
+## App Pages
 
-### 1. Dashboard
-Overview of key credit risk metrics:
-- Total customers
-- Default rate
-- Average credit score
-- Average income
-- Distribution charts
+### Dashboard
 
-### 2. EDA (Exploratory Data Analysis)
-Interactive analysis of the dataset:
-- Dataset shape and missing values
-- Feature distributions
-- Correlation analysis with default flag
-- Top correlated features
+Shows key indicators such as total customers, default rate, average credit score, average annual income, default distribution, and delinquency profile.
 
-### 3. Model Info
-Information about the machine learning model:
-- Model type and objective
-- Feature categories and descriptions
-- Hyperparameters
-- Feature importance
+### EDA
 
-### 4. Risk Prediction
-Interactive tool to predict credit risk:
-- Input customer information
-- Automatic risk score calculation
-- Risk level classification
-- Risk factors analysis
+Provides dataset shape, missing data summary, feature distributions, descriptive statistics, and correlation analysis against `Default_Flag`.
 
-### 5. Performance
-Model performance evaluation:
-- Accuracy, Precision, Recall metrics
-- F1 Score and ROC-AUC
-- Confusion matrix
-- ROC curve visualization
+### Model Info
 
-## Technologies Used
+Documents the Logistic Regression model, target variable, feature categories, and high-level model configuration.
 
-- **Streamlit** - Web application framework
-- **Pandas** - Data manipulation
-- **NumPy** - Numerical computing
-- **Scikit-learn** - Machine learning
-- **Matplotlib & Seaborn** - Data visualization
+### Predict Risk
+
+Accepts customer details and returns a calculated risk score, risk level, decision recommendation, risk factors, and positive factors.
+
+### Performance
+
+Displays model performance metrics, confusion matrix, ROC-AUC curve, strengths, improvement areas, and recommendations.
+
+## Technologies
+
+- Streamlit
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Seaborn
 
 ## Model Details
 
-**Model Type:** Logistic Regression
-
-**Performance Metrics:**
-- Accuracy: ~94%
-- Precision: ~92%
-- Recall: ~85%
-- F1 Score: ~88%
-- ROC-AUC: ~0.91
-
-**Target Variable:** Default_Flag (Binary Classification)
-
-**Dataset:** 51,336 records with 96 features
-
-## Use Cases
-
-- Credit risk assessment for loan applications
-- Customer risk profiling
-- Portfolio analysis
-- Default prediction
-- Risk-based decision making
-
-## Future Enhancements
-
-- Integrate trained model for actual predictions
-- Add model retraining functionality
-- Implement multi-model comparison
-- Add data export features
-- Deploy to Streamlit Cloud
+- Model type: Logistic Regression
+- Target variable: `Default_Flag`
+- Dataset size: 51,336 records with 96 features
+- Reported metrics:
+  - Accuracy: ~94%
+  - Precision: ~92%
+  - Recall: ~85%
+  - F1 Score: ~88%
+  - ROC-AUC: ~0.91
 
 ## Notes
 
-- Make sure `final_data_set.csv` is in the same directory as `app.py`
-- The app requires internet connection for initial load
-- For large datasets, consider data filtering or sampling
-
-## Support
-
-For issues or questions, refer to the Streamlit documentation at https://docs.streamlit.io/
-
-## License
-
-This project is created for credit risk analysis purposes.
+- Keep `final_data_set.csv` in the same directory as `app.py`.
+- `.streamlit/secrets.toml` and `.venv/` are intentionally ignored by Git.
+- Run `train_model.py` only when you need to regenerate model artifacts.
